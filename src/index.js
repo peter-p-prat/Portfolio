@@ -1,12 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import './reset.css';
+import './styles/fonts/shrimp.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { MyThemeProvider } from "./components/context/ThemeContext";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <MyThemeProvider>
+      <App />
+    </MyThemeProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
