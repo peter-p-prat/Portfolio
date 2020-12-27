@@ -8,7 +8,6 @@ import theme from 'styled-theming';
   const linksLight = "#39DBE2";
 
    //Colores Dark
-   const colorcito = "#FF636E"
    const h1Dark = "#ECECEC";
    const h2Dark = "#F3F3F3";
    const h3Dark = "#F5F5F5";

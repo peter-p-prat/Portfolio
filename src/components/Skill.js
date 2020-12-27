@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import {sombraColor, sombraColorHover ,cardColor, h1Color, h2Color, h3Color, textColor, linksColor , buttonBackgroundColor, buttonTextColor, h1FondoColor, textoFondoColor } from './ui/theme';
+import {sombraColor, sombraColorHover ,cardColor } from './ui/theme';
 
 const Card = styled.div`
     background-color: ${cardColor};

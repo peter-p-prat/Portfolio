@@ -1,9 +1,8 @@
 import React, { Fragment } from "react";
 import { createGlobalStyle } from 'styled-components';
 
-import { h1Color, h2Color, h3Color, textColor, linksColor , buttonBackgroundColor, buttonTextColor, h1FondoColor, textoFondoColor } from './theme';
+import { h1Color, h2Color, h3Color, linksColor , buttonBackgroundColor, buttonTextColor, h1FondoColor, textoFondoColor } from './theme';
 
-import Header from './header';
 import Menu from './Menu';
 
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import blob1 from '../images/blob1.svg';
-import { h1Color } from '../components/ui/theme';
+
 const Wrapperwrapper = styled.div`
     margin:0;
     padding:0;

@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styled from 'styled-components';
-import Switch from './Switch';
-import { h1Color, h2Color, h3Color, textColor, linksColor , buttonBackgroundColor, buttonTextColor, iconClosedColor, iconOpenedColor, menuColor1, menuColor2, textoFondoColor, fondoColorClaro } from './theme';
-import Toggle from './Toggle';
+import {  iconClosedColor, iconOpenedColor, menuColor1, textoFondoColor, fondoColorClaro } from './theme';
+
+
 const Checkbox = styled.input`
     display: none;
 
@@ -171,11 +171,10 @@ const Link = styled.a`
     }
 `;
 const Menu = () => {
-const [chequeado, setChequeado] = useState(false) ; 
 
     return ( 
         <div className="navigation">
-            <Checkbox type="checkbox" defaultChecked={chequeado} className="navigation__checkbox" id="navi-toggle"/>
+            <Checkbox type="checkbox"  className="navigation__checkbox" id="navi-toggle"/>
 
             <Button htmlFor="navi-toggle" className="navigation__button">
                 <Icon className="navigation__icon">&nbsp;</Icon>
