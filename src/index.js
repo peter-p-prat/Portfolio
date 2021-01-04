@@ -6,12 +6,22 @@ import './styles/fonts/shrimp.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { MyThemeProvider } from "./components/context/ThemeContext";
+import { GraphQLClient, ClientContext } from 'graphql-hooks';
+
+const client = new GraphQLClient({
+  url: "https://graphql.datocms.com/",
+  headers: {
+    "Authorization": "Bearer 90e90f013784a4024e642a41425ba8",
+  }
+});
 
 ReactDOM.render(
   <React.StrictMode>
-    <MyThemeProvider>
-      <App />
-    </MyThemeProvider>
+    <ClientContext.Provider value={client}>
+      <MyThemeProvider>
+        <App />
+      </MyThemeProvider>
+    </ClientContext.Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

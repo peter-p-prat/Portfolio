@@ -21,6 +21,7 @@ function App(props) {
         <Switch />
         <Hero />
         <Skills />
+        
         <Projects />
       </Layout>
     </Fragment>
