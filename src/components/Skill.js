@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { converter2 } from '../helper2';
 
 import {sombraColor, sombraColorHover ,cardColor } from './ui/theme';
 
@@ -35,10 +36,13 @@ opacity: 60%;
 
 
 const Skill = ({nombre , icono , experiencia}) => {
+    console.log(icono);
+    converter2(icono);
+    console.log(icono);
     return ( 
         <Card>
             
-                {icono}
+                {icono[0]}
             
             <Name>{nombre}</Name>
             <Experiencia>{experiencia}</Experiencia>

@@ -55,10 +55,17 @@ const Button = styled.label`
     text-align: center;
     transition: background-color .8s cubic-bezier(0.83, 0, 0.17, 1);
     cursor: pointer;
-
+    @media(max-width: 415px) {
+        height:3rem;
+        width:3rem;
+    }
     span {
         position: relative;
         margin-top:1.9rem;
+        
+        @media(max-width: 415px) {
+            margin-top:1.42rem;
+        }
         &,
         &::before,
         &::after {
@@ -66,6 +73,10 @@ const Button = styled.label`
             height: 2px;
             background-color: ${iconOpenedColor};;
             display: inline-block;
+            @media(max-width: 415px) {
+                height:1.5px;
+                width: 1.5rem;
+            }
         };
 
         &::before,
@@ -76,7 +87,9 @@ const Button = styled.label`
             transition: all .2s;
         };
 
-        &::before { top: -.5rem; };
+        &::before { 
+            top: -.5rem;
+        };
         &::after { top: .5rem; };
     };
     &:hover span {
@@ -104,6 +117,10 @@ const Background = styled.div`
     z-index: 1000;
     transition: transform .8s cubic-bezier(0.83, 0, 0.17, 1);
     //transform: scale(50);
+    @media(max-width: 415px) {
+        height:2rem;
+        width:2rem;
+    }
 `;
 
 const Navigation = styled.nav`

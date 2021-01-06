@@ -17,11 +17,11 @@ const client = new GraphQLClient({
 
 ReactDOM.render(
   <React.StrictMode>
-    <ClientContext.Provider value={client}>
-      <MyThemeProvider>
+    <MyThemeProvider>
+      <ClientContext.Provider value={client}>
         <App />
-      </MyThemeProvider>
-    </ClientContext.Provider>
+      </ClientContext.Provider>
+     </MyThemeProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

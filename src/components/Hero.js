@@ -1,6 +1,8 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, {withTheme} from 'styled-components';
 import blob1 from '../images/blob1.svg';
+import blob from '../images/blob.svg';
+import { h1Color, textoFondoColor, h1FondoColor, fondoColor, Titular, Resaltado, subTitulo, copete, globoHero } from './ui/theme';
 
 const Wrapperwrapper = styled.div`
     margin:0;
@@ -20,24 +22,31 @@ const Wrapper = styled.div`
     position:relative;
     /* background-color: #9ED4B7; verde clarito */
     /* background-color: #00cba9; verdecito agua */
-    background-color: var(--colorClaro);
+    background-color: ${fondoColor};
     margin: 0;
-    padding: 0.1 1rem;
+    padding: 3rem 1rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    @media (max-width: 880px) {
+    @media (max-width: 800px) {
         flex-direction:column;
         justify-content: space-between;
+        padding: 1rem 1rem;
     };
     
     
     
 `;
 const Titulo = styled.h1`
-   
     margin-top: 0;
     font-size: 3rem;
+    color: ${Titular};
+    background-size: 100% 0.5em;
+    background-repeat: no-repeat;
+    background-position: center 100%;
+    background-image: linear-gradient(120deg, ${Resaltado} 0%,${Resaltado} 100%);
+    width:fit-content;
+    display:inline;
     @media (max-width: 880px) {
         margin-bottom: 0;
     };
@@ -46,37 +55,44 @@ const Presentacion = styled.div`
     max-height: 50%;
     order: 2;
     width: 90%;
+    h2 {
+        color: ${subTitulo};
+        margin-bottom:0.2rem;
+    };
     p {
         font-weight: 400;
         line-height: 1.7;
-        
-        
-        @media (max-width: 880px) {
-        margin-top: 1rem;
+        color: ${copete};
+        margin-top: 0;
+        @media (max-width: 800px) {
+        margin-top: 0;
         };
     }
-    @media (min-width: 880px) {
+    @media (min-width: 800px) {
         margin:0 2rem 0 2rem;
         order: 0;
     };
-    @media (max-width: 880px) {
+    @media (max-width: 800px) {
         padding-bottom: 3rem;
         flex-grow: 1;
     }
 `
 const Ventanita = styled.div`
+position: relative;
     order: 1;
     margin:1rem;
     padding: 5rem;
+    height: 45vh;
     width: 90%;
     max-width: 35vw;
-    background: no-repeat center url(${blob1}) ;
-    background-size: 100%;
+    background: no-repeat center url(${globoHero}) ;
+    background-size: 90%;
     @media (max-width: 880px) {
         max-width: 200px;
-        max-height: 25vw;
-        background-size: 80%;
+        height: 20vw;
+        background-size: 70%;
         margin-top: 3rem;
+        margin-left:3rem;
         padding: 4rem 5rem 5rem 5rem;
     };
     svg{
@@ -86,24 +102,31 @@ const Ventanita = styled.div`
 `;
 
 const Ilustracion = styled.svg`
-    height: 100%;
+position: absolute;
+top:1rem;
+left:0;
+    height: 80%;
         padding: 1rem;
         width: 90%;
         max-width: 100%;
         padding-right: 2rem;
-    @media (max-width: 880px) {
-      
+    @media (min-width: 880px) {
+        height: 70%;
+        top:4rem;
+        left:0;
     };
        
 `
 
-const Hero = () => {
+const Hero = (props) => {
     return ( 
         <Wrapperwrapper>
         <Wrapper>
             <Presentacion>
-                <Titulo className="fondoColor">Pedro Peirano Prat</Titulo> 
-                <p className="fondoColor">Programador Javascript con fluidez tanto en frontend como en backend, centrado en crear soluciones novedosas, esteticas y faciles de usar.</p>
+                <Titulo >Pedro </Titulo><Titulo>Peirano </Titulo> <Titulo>Prat</Titulo> 
+                <h2>Programador Front-end</h2>
+                <p>Paginas web interactivas, diseño intuitivo y 100% responsive.</p>
+                {/* <p>Programador Javascript con fluidez tanto en frontend como en backend, centrado en crear soluciones novedosas, esteticas y faciles de usar.</p> */}
             </Presentacion>
             
             <Ventanita>
@@ -131,7 +154,7 @@ const Hero = () => {
         </g>
         <g stroke="null" id="svg_33">
          <g stroke="null" id="svg_34">
-          <path stroke="null" id="svg_35" d="m11712.35631,8854.70232l1.346,4.572l-5.928,1.873c0,0 -13.382,5.618 -15.875,3.013c-1.142,-1.193 3.214,-2.371 6.01,-4.222c2.796,-1.851 7.188,-4.465 7.188,-4.465s3.857,0.145 7.259,-0.771z" fill="#0B4870"/>
+          <path stroke="null" id="svg_35" d="m11712.35631,8854.70232l1.346,4.572l-5.928,1.873c0,0 -13.382,5.618 -15.875,3.013c-1.142,-1.193 3.214,-2.371 6.01,-4.222c2.796,-1.851 7.188,-4.465 7.188,-4.465s3.857,0.145 7.259,-0.771z" fill="#4e4e4e"/>
          </g>
         </g>
         <g stroke="null" id="svg_36">
@@ -139,7 +162,7 @@ const Hero = () => {
         </g>
         <g stroke="null" id="svg_38">
          <g stroke="null" id="svg_39">
-          <path stroke="null" id="svg_40" d="m11682.75931,8862.97232l0,4.766l-6.216,0.123c0,0 -14.423,1.611 -16.08,-1.591c-0.759,-1.467 3.753,-1.367 6.958,-2.353c3.205,-0.986 8.156,-2.254 8.156,-2.254s3.66,1.227 7.182,1.309z" fill="#0B4870"/>
+          <path stroke="null" id="svg_40" d="m11682.75931,8862.97232l0,4.766l-6.216,0.123c0,0 -14.423,1.611 -16.08,-1.591c-0.759,-1.467 3.753,-1.367 6.958,-2.353c3.205,-0.986 8.156,-2.254 8.156,-2.254s3.66,1.227 7.182,1.309z" fill="#4e4e4e"/>
          </g>
         </g>
         <g stroke="null" id="svg_41">
@@ -164,12 +187,12 @@ const Hero = () => {
         </g>
         <g stroke="null" id="svg_54">
          <g stroke="null" id="svg_55">
-          <path stroke="null" id="svg_56" d="m11692.03931,8773.10632c0,0 -29.583,17.576 -31.342,24.833c-2.099,8.66 12.089,59.94 12.089,59.94c3.346,2.251 9.549,1.491 11.831,-0.557c0,0 -11.413,-43.879 -10.17,-46.811c3.044,-7.175 28.965,-15.726 37.139,-23.545c8.174,-7.819 8.885,-15.282 8.885,-15.282l-28.432,1.422z" fill="#0B4870"/>
+          <path stroke="null" id="svg_56" d="m11692.03931,8773.10632c0,0 -29.583,17.576 -31.342,24.833c-2.099,8.66 12.089,59.94 12.089,59.94c3.346,2.251 9.549,1.491 11.831,-0.557c0,0 -11.413,-43.879 -10.17,-46.811c3.044,-7.175 28.965,-15.726 37.139,-23.545c8.174,-7.819 8.885,-15.282 8.885,-15.282l-28.432,1.422z" fill={props.theme.mode === 'dark' ? "#0B4870" : "#308697"}/>
          </g>
         </g>
         <g stroke="null" id="svg_57">
          <g stroke="null" id="svg_58">
-          <path stroke="null" id="svg_59" d="m11725.85931,8765.24632c0,0 10.077,21.01 1.014,29.539c-4.149,3.905 -28.97,0.355 -30.391,4.265l14.985,49.783c0,0 -2.643,1.607 -7.974,4.272c0,0 -31.178,-54.944 -27.979,-62.052c3.199,-7.108 24.7,-11.195 25.766,-15.104c1.066,-3.909 1.777,-10.306 1.777,-10.306l22.802,-0.397z" fill="#0B4870"/>
+          <path stroke="null" id="svg_59" d="m11725.85931,8765.24632c0,0 10.077,21.01 1.014,29.539c-4.149,3.905 -28.97,0.355 -30.391,4.265l14.985,49.783c0,0 -2.643,1.607 -7.974,4.272c0,0 -31.178,-54.944 -27.979,-62.052c3.199,-7.108 24.7,-11.195 25.766,-15.104c1.066,-3.909 1.777,-10.306 1.777,-10.306l22.802,-0.397z" fill={props.theme.mode === 'dark' ? "#0B4870" : "#308697"}/>
          </g>
         </g>
         <g stroke="null" id="svg_60">
@@ -195,7 +218,7 @@ const Hero = () => {
         <g stroke="null" id="svg_73">
          <g stroke="null" id="svg_74">
           <g stroke="null" id="svg_75">
-           <path stroke="null" id="svg_76" d="m11689.08931,8692.73632c-3.458,-0.228 -7.095,-0.248 -10.118,-1.822c-1.469,-0.765 -2.788,-1.986 -3.069,-3.527s0.847,-3.328 2.528,-3.439c0.346,-0.023 0.723,0.016 1.013,-0.162c0.371,-0.227 0.432,-0.698 0.488,-1.107c0.376,-2.742 2.682,-5.507 5.661,-5.439c2.43,0.055 4.691,1.925 7.044,1.359c0.724,-0.174 1.359,-0.567 2.023,-0.887c1.996,-0.964 4.346,-1.283 6.556,-0.891c2.332,0.414 4.805,2.254 4.234,4.391c-0.191,0.714 -0.702,1.335 -0.839,2.06c-0.487,2.585 3.632,3.874 4.446,6.387c0.741,2.287 -1.521,4.565 -1.347,6.947c0.096,1.324 0.869,2.88 -0.139,3.822c-0.538,0.503 -1.456,0.628 -1.817,1.252c-0.491,0.85 0.423,1.816 0.504,2.778c0.099,1.193 -1.262,2.192 -2.547,2.091c-1.285,-0.101 -2.354,-1.051 -2.859,-2.151c-0.506,-1.1 -0.543,-2.333 -0.503,-3.528c2.176,-0.612 3.515,-4.197 1.468,-5.113c-1.092,-0.489 -2.253,0.697 -2.667,1.703c-2.162,-3.432 -5.613,-4.724 -10.06,-4.724z" fill="#0B4870"/>
+           <path stroke="null" id="svg_76" d="m11689.08931,8692.73632c-3.458,-0.228 -7.095,-0.248 -10.118,-1.822c-1.469,-0.765 -2.788,-1.986 -3.069,-3.527s0.847,-3.328 2.528,-3.439c0.346,-0.023 0.723,0.016 1.013,-0.162c0.371,-0.227 0.432,-0.698 0.488,-1.107c0.376,-2.742 2.682,-5.507 5.661,-5.439c2.43,0.055 4.691,1.925 7.044,1.359c0.724,-0.174 1.359,-0.567 2.023,-0.887c1.996,-0.964 4.346,-1.283 6.556,-0.891c2.332,0.414 4.805,2.254 4.234,4.391c-0.191,0.714 -0.702,1.335 -0.839,2.06c-0.487,2.585 3.632,3.874 4.446,6.387c0.741,2.287 -1.521,4.565 -1.347,6.947c0.096,1.324 0.869,2.88 -0.139,3.822c-0.538,0.503 -1.456,0.628 -1.817,1.252c-0.491,0.85 0.423,1.816 0.504,2.778c0.099,1.193 -1.262,2.192 -2.547,2.091c-1.285,-0.101 -2.354,-1.051 -2.859,-2.151c-0.506,-1.1 -0.543,-2.333 -0.503,-3.528c2.176,-0.612 3.515,-4.197 1.468,-5.113c-1.092,-0.489 -2.253,0.697 -2.667,1.703c-2.162,-3.432 -5.613,-4.724 -10.06,-4.724z" fill="#4e4e4e"/>
           </g>
          </g>
          <g stroke="null" id="svg_77">
@@ -277,7 +300,7 @@ const Hero = () => {
         
   
   {/* <path fill="#526d85" fill-opacity="1" d="M0,32L24,53.3C48,75,96,117,144,154.7C192,192,240,224,288,208C336,192,384,128,432,106.7C480,85,528,107,576,112C624,117,672,107,720,117.3C768,128,816,160,864,186.7C912,213,960,235,1008,250.7C1056,267,1104,277,1152,245.3C1200,213,1248,139,1296,96C1344,53,1392,43,1416,37.3L1440,32L1440,0L1416,0C1392,0,1344,0,1296,0C1248,0,1200,0,1152,0C1104,0,1056,0,1008,0C960,0,912,0,864,0C816,0,768,0,720,0C672,0,624,0,576,0C528,0,480,0,432,0C384,0,336,0,288,0C240,0,192,0,144,0C96,0,48,0,24,0L0,0Z"></path> */}
-  <path fill="#768fa6" fillOpacity="1" d="M0,96L17.1,80C34.3,64,69,32,103,42.7C137.1,53,171,107,206,117.3C240,128,274,96,309,85.3C342.9,75,377,85,411,112C445.7,139,480,181,514,170.7C548.6,160,583,96,617,96C651.4,96,686,160,720,202.7C754.3,245,789,267,823,256C857.1,245,891,203,926,186.7C960,171,994,181,1029,170.7C1062.9,160,1097,128,1131,144C1165.7,160,1200,224,1234,224C1268.6,224,1303,160,1337,138.7C1371.4,117,1406,139,1423,149.3L1440,160L1440,0L1422.9,0C1405.7,0,1371,0,1337,0C1302.9,0,1269,0,1234,0C1200,0,1166,0,1131,0C1097.1,0,1063,0,1029,0C994.3,0,960,0,926,0C891.4,0,857,0,823,0C788.6,0,754,0,720,0C685.7,0,651,0,617,0C582.9,0,549,0,514,0C480,0,446,0,411,0C377.1,0,343,0,309,0C274.3,0,240,0,206,0C171.4,0,137,0,103,0C68.6,0,34,0,17,0L0,0Z"></path> 
+  <path fill={props.theme.mode === 'dark' ? "#768fa6" : "#c9c8ac"} fillOpacity="1" d="M0,96L17.1,80C34.3,64,69,32,103,42.7C137.1,53,171,107,206,117.3C240,128,274,96,309,85.3C342.9,75,377,85,411,112C445.7,139,480,181,514,170.7C548.6,160,583,96,617,96C651.4,96,686,160,720,202.7C754.3,245,789,267,823,256C857.1,245,891,203,926,186.7C960,171,994,181,1029,170.7C1062.9,160,1097,128,1131,144C1165.7,160,1200,224,1234,224C1268.6,224,1303,160,1337,138.7C1371.4,117,1406,139,1423,149.3L1440,160L1440,0L1422.9,0C1405.7,0,1371,0,1337,0C1302.9,0,1269,0,1234,0C1200,0,1166,0,1131,0C1097.1,0,1063,0,1029,0C994.3,0,960,0,926,0C891.4,0,857,0,823,0C788.6,0,754,0,720,0C685.7,0,651,0,617,0C582.9,0,549,0,514,0C480,0,446,0,411,0C377.1,0,343,0,309,0C274.3,0,240,0,206,0C171.4,0,137,0,103,0C68.6,0,34,0,17,0L0,0Z"></path> 
   {/* <path fill="#768fa6" fill-opacity="1" d="M0,128L40,122.7C80,117,160,107,240,90.7C320,75,400,53,480,80C560,107,640,181,720,186.7C800,192,880,128,960,112C1040,96,1120,128,1200,128C1280,128,1360,96,1400,80L1440,64L1440,0L1400,0C1360,0,1280,0,1200,0C1120,0,1040,0,960,0C880,0,800,0,720,0C640,0,560,0,480,0C400,0,320,0,240,0C160,0,80,0,40,0L0,0Z"></path> */}
 </svg>
 
@@ -286,4 +309,4 @@ const Hero = () => {
     );
 }
  
-export default Hero;
+export default withTheme(Hero);

@@ -1,4 +1,6 @@
 import theme from 'styled-theming';
+import blob1 from '../../images/blob1.svg';
+import blob from '../../images/blob.svg';
 
   //Colores
   const h1Light = "#4e4e4e";
@@ -7,21 +9,68 @@ import theme from 'styled-theming';
   const textoLight = "#757575";
   const linksLight = "#39DBE2";
 
+  const arena = "#c9c8ac";
+  const arena2 = "#b0af87";
+  const verde = "#246c3e";
+  const verde2 = "#246c3eBF";
+  const verde3 = "#246c3e99";
+  const azulAgua = "#1996af";
+  const azulPantalonLight = "#308697";
+
    //Colores Dark
    const h1Dark = "#ECECEC";
    const h2Dark = "#F3F3F3";
    const h3Dark = "#F5F5F5";
    const textoDark = "#E8E8E8";
    const linksDark = "#39DBE2";
-   
+   const azulFondoClaro = "#768fa6";
+   const azulFondoOscuro = "#526d85";
+   const azulOscuro = '#08131d';
+   const azulClaro = '#1c2e3e';
+   const azulClaro2 = '#1c2e3e99';
+   const rosa = '#e46a93';
    //Colores
-  
+  const azulPantalonDark = "#0B4870";
 
    const rosaOscuro = '#FFD6E8';
    const rosaClaro = '#ffe6f1';
-
-   const azulOscuro = '#08131d';
-   const azulClaro = '#1c2e3e';
+  
+   //Colores Hero
+  export const fondoColor = theme('mode', {
+    light: arena,
+    dark: azulFondoClaro
+  });
+  export const globoHero = theme('mode', {
+    light: blob1,
+    dark: blob
+  })
+  export const Titular = theme('mode', {
+    light: verde,
+    dark: azulOscuro
+  });
+  export const Resaltado = theme('mode', {
+    light: azulAgua,
+    dark: rosa
+  });
+  export const subTitulo = theme('mode', {
+    light: h1Light,
+    dark: azulClaro
+  });
+  export const copete = theme('mode', {
+    light: h1Light,
+    dark: azulClaro2
+  })
+  export const pantalonesSvg = theme('mode', {
+    light: azulPantalonLight,
+    dark: azulPantalonDark
+  })
+  
+  //Colores Switch 
+  
+  export const knobSwitch = theme('mode', {
+    light: arena2,
+    dark: azulFondoOscuro
+  })
 
 export const fondoColorOscuro = '#526d85';
 export const fondoColorClaro = '#768fa6';
@@ -35,7 +84,7 @@ export const sombraColorHover = theme('mode', {
   dark: "#08131d33"
 });
 export const cardColor = theme('mode', {
-  light: '#fafafa26',//gris muy claro
+  light: '#f0f0f0',//gris muy claro
   dark: '#ffffff1A'//gris
 });
 
@@ -78,13 +127,18 @@ export const headerText = theme('mode', {
 })
 
 export const backgroundColor = theme('mode', {
-  light: '#ededed',//gris muy claro
+  light: '#e3e3e3',//gris muy claro
   dark: '#222'//gris
 });
 
 export const h1Color = theme('mode', {
   light: h1Light,
   dark: h1Dark
+});
+
+export const h1ColorOpposite = theme('mode', {
+  light: "#ececec",
+  dark: "#4e4e4e"
 });
 
 export const h2Color = theme('mode', {
@@ -118,6 +172,11 @@ export const buttonTextColor = theme('mode', {
 });
 
 export const switchToggle = theme('mode', {
+  light:  "-1px",
+  dark: "calc(100% - 34px)"
+});
+
+export const switchTogglePhone = theme('mode', {
   light:  "0",
-  dark: "calc(100% - 35px)"
+  dark: "calc(100% - 26.25px)"
 });
