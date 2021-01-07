@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import { createGlobalStyle } from 'styled-components';
 
-import { h1Color, h2Color, h3Color, linksColor , buttonBackgroundColor, buttonTextColor, h1FondoColor, textoFondoColor } from './theme';
+import { h1Color, h2Color, h3Color, linksColor , ResaltadoTranslucido ,buttonBackgroundColor, buttonTextColor, h1FondoColor, textoFondoColor } from './theme';
 
 import Menu from './Menu';
 
@@ -11,6 +11,14 @@ const GlobalStyle = createGlobalStyle`
         --colorOscuro: #526d85;
         --colorClaro: #768fa6;
     };
+    *::-moz-selection { /* Code for Firefox */
+        background: ${ResaltadoTranslucido};
+    };
+
+    *::selection {
+        background: ${ResaltadoTranslucido};
+    };
+
     h1, h2, h3 {
         //font-family: 'Rubik', sans-serif;
         font-family: 'Playfair Display', serif;
@@ -46,7 +54,7 @@ const GlobalStyle = createGlobalStyle`
 
 
 
-    a, p {
+    a, p, textarea, input {
         font-family: 'Open Sans', sans-serif;
     };
 `;

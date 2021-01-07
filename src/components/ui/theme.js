@@ -15,6 +15,7 @@ import blob from '../../images/blob.svg';
   const verde2 = "#246c3eBF";
   const verde3 = "#246c3e99";
   const azulAgua = "#1996af";
+  const azulAguaTranslucido = "#1996afA6";
   const azulPantalonLight = "#308697";
 
    //Colores Dark
@@ -29,6 +30,7 @@ import blob from '../../images/blob.svg';
    const azulClaro = '#1c2e3e';
    const azulClaro2 = '#1c2e3e99';
    const rosa = '#e46a93';
+   const rosaTranslucido = '#e46a93A6';
    //Colores
   const azulPantalonDark = "#0B4870";
 
@@ -51,6 +53,10 @@ import blob from '../../images/blob.svg';
   export const Resaltado = theme('mode', {
     light: azulAgua,
     dark: rosa
+  });
+  export const ResaltadoTranslucido = theme('mode', {
+    light: azulAguaTranslucido,
+    dark: rosaTranslucido
   });
   export const subTitulo = theme('mode', {
     light: h1Light,

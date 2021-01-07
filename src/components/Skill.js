@@ -1,6 +1,7 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, {withTheme} from 'styled-components';
 import { converter2 } from '../helper2';
+import { converter3 } from '../helper3';
 
 import {sombraColor, sombraColorHover ,cardColor } from './ui/theme';
 
@@ -15,7 +16,7 @@ const Card = styled.div`
     box-shadow: 0 1rem 0.5rem ${sombraColor};
     overflow: hidden;
     margin: 0;
-
+    padding-top:3rem;
     transition: transform .5s, box-shadow 1s;
     &:hover {
         transform: translateY(-.9rem) scale(1.03);
@@ -25,8 +26,16 @@ const Card = styled.div`
 `;
 
 const Name = styled.h1`
-    font-size: clamp(1.5rem, 1.8rem, 2rem);
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    /* font-size: 2vw; */
     max-width: 100%;
+    @media(max-width:1200px){
+        font-size: clamp(1.3rem, 2vw, 1.5rem);
+    }
+
+`;
+const Tool = styled.div`
+    margin-top:2rem;
 
 `;
 
@@ -35,20 +44,24 @@ opacity: 60%;
 `
 
 
-const Skill = ({nombre , icono , experiencia}) => {
-    console.log(icono);
-    converter2(icono);
-    console.log(icono);
+const Skill = ({theme, nombre , icono , experiencia}) => {
+    if (icono[0] === "next") {
+        theme.mode === 'dark' ? converter3(icono) : converter2(icono)
+    } else { 
+        converter2(icono);
+    }
+    
     return ( 
         <Card>
-            
+            {!experiencia && <Tool> </Tool>}
                 {icono[0]}
             
             <Name>{nombre}</Name>
+            
             <Experiencia>{experiencia}</Experiencia>
             
         </Card>
      );
 }
  
-export default Skill;
+export default withTheme(Skill);

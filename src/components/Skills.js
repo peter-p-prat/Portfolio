@@ -31,6 +31,9 @@ const Grid = styled.div`
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     grid-gap: 2rem;
     align-items: center;
+    @media(min-width:1200px){
+        max-width:85vw;
+    }
 `;
 const Item = styled.div`
     place-self: center stretch;
@@ -41,7 +44,7 @@ const Skills = () => {
 
 
 
-    const QUERY_FRONTEND = `
+    const QUERY_SKILLS = `
         {
             allFrontends(orderBy: _createdAt_ASC) {
                 nombre
@@ -53,14 +56,20 @@ const Skills = () => {
                 experiencia
                 icono
             }
+            allTools {
+                nombre
+                icono
+            }
         }
       
     `;
-    const { loading, error, data} = useQuery(QUERY_FRONTEND, {
+
+    const { loading, error, data} = useQuery(QUERY_SKILLS, {
         variables: {
         limit: 30
         }
     });
+
     if (loading) return ( 
         <Fragment>
             
@@ -68,19 +77,15 @@ const Skills = () => {
                 <Titulo>Skills</Titulo>
                 <Categoria>FrontEnd</Categoria>
                 <p>...Trayendo mis skills del CMS...</p>
+                <Categoria>BackEnd</Categoria>
+                <p>...Trayendo mis skills del CMS...</p>
+                <Categoria>Herramientas</Categoria>
+                <p>...Trayendo mis skills del CMS...</p>
             </Wrapper>
         </Fragment>
      );
-    if (error) return "algo malo paso";
- 
-    data.allFrontends.map(frontend => (
-        console.log(frontend.icono.icono)
-    ))
 
- 
-    data.allBackends.map(backend => (
-        console.log(backend.icono.icono)
-    ))
+    if (error) return "algo malo paso";
 
 
     return ( 
@@ -101,6 +106,14 @@ const Skills = () => {
                     {data.allBackends.map(backend => (
                         <Item>
                             <Skill key={backend.nombre} nombre={backend.nombre} icono={ backend.icono.icono } experiencia={backend.experiencia}/>
+                        </Item>
+                    ))}
+                </Grid>
+                <Categoria>Herramientas</Categoria>
+                <Grid>
+                    {data.allTools.map(tool => (
+                        <Item>
+                            <Skill key={tool.nombre} nombre={tool.nombre} icono={ tool.icono.icono } experiencia={false}/>
                         </Item>
                     ))}
                 </Grid>
