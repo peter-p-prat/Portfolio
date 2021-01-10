@@ -119,8 +119,9 @@ left:0;
 `
 
 const Hero = (props) => {
+
     return ( 
-        <Wrapperwrapper>
+        <Wrapperwrapper ref={props.refProp}>
         <Wrapper>
             <Presentacion>
                 <Titulo >Pedro </Titulo><Titulo>Peirano </Titulo> <Titulo>Prat</Titulo> 

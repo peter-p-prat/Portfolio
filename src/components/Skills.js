@@ -1,10 +1,13 @@
-import React, {Fragment} from 'react';
+import React, {Fragment, useState} from 'react';
 import styled from 'styled-components';
 import { useQuery } from "graphql-hooks";
+import Carousel from 'nuka-carousel';
 
 import Skill from './Skill';
 
 import { Resaltado } from './ui/theme';
+
+
 const Titulo = styled.h1`
     display: inline;
     text-align: center;
@@ -38,9 +41,21 @@ const Grid = styled.div`
 const Item = styled.div`
     place-self: center stretch;
 `;
-
-
-const Skills = () => {
+const Sliderwrap = styled.div`
+    height: 100vh;
+    width:80vw;
+`;
+const Slide = styled.div`
+    height: 300px;
+    width:200px;
+    background-color:orange;
+    text-align: center;
+    border-radius: 7px;
+`;
+const Probando = styled(Carousel)`
+max-width:80vw;
+`;
+const Skills = (props) => {
 
 
 
@@ -73,7 +88,7 @@ const Skills = () => {
     if (loading) return ( 
         <Fragment>
             
-            <Wrapper>
+            <Wrapper ref={props.refProp}>
                 <Titulo>Skills</Titulo>
                 <Categoria>FrontEnd</Categoria>
                 <p>...Trayendo mis skills del CMS...</p>
@@ -86,17 +101,46 @@ const Skills = () => {
      );
 
     if (error) return "algo malo paso";
-
+  
 
     return ( 
         <Fragment>
             
-            <Wrapper>
+            
+            
+           
+            <Wrapper ref={props.refProp}>
                 <Titulo>Skills</Titulo>
                 <Categoria>FrontEnd</Categoria>
+                <Probando defaultControlsConfig={{
+                    nextButtonStyle: {
+                        borderRadius: "50%",
+                        height: 40,
+                        width:40,
+                        marginRight: 15
+                    },
+                    prevButtonStyle:  {
+                        borderRadius: "50%",
+                        height: 40,
+                        width:40,
+                        marginLeft: 15
+                    },
+                    nextButtonText: '>',
+                    prevButtonText: '<',
+                    pagingDotsStyle: {
+                        
+                    }
+                    }}>
+            {data.allFrontends.map(frontend => (
+                        <Item key={frontend.nombre}>
+                            <Skill key={frontend.nombre} nombre={frontend.nombre} icono={ frontend.icono.icono } experiencia={frontend.experiencia}/>
+                        </Item>
+                    ))}
+            </Probando>
+               
                 <Grid>
                     {data.allFrontends.map(frontend => (
-                        <Item>
+                        <Item key={frontend.nombre}>
                             <Skill key={frontend.nombre} nombre={frontend.nombre} icono={ frontend.icono.icono } experiencia={frontend.experiencia}/>
                         </Item>
                     ))}

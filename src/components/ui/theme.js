@@ -77,9 +77,27 @@ import blob from '../../images/blob.svg';
     light: arena2,
     dark: azulFondoOscuro
   })
+//Colores utilizado en los globos(igual al knowSwitch)
+export const fondoColorOscuro = theme('mode', {
+  light: arena2,
+  dark: azulFondoOscuro
+});
 
-export const fondoColorOscuro = '#526d85';
-export const fondoColorClaro = '#768fa6';
+//Colores del menu
+export const backgroundMenu = theme('mode', {
+  light: arena,
+  dark: azulOscuro
+});
+export const itemMenu = theme('mode', {
+  light: verde,
+  dark: azulFondoClaro
+});
+
+export const itemMenuResaltado = theme('mode', {
+  light: arena,
+  dark: rosa
+});
+
 
 export const sombraColor = theme('mode', {
   light: "#4e4e4e14",

@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
-import {  iconClosedColor, iconOpenedColor, menuColor1, textoFondoColor, fondoColorClaro } from './theme';
+import {  iconClosedColor, iconOpenedColor, menuColor1, textoFondoColor, fondoColorClaro, fondoColor, fondoColorOscuro, Titular, Resaltado, ResaltadoTranslucido, itemMenu, itemMenuResaltado, backgroundMenu } from './theme';
 
 
 const Checkbox = styled.input`
@@ -113,7 +113,7 @@ const Background = styled.div`
     position: fixed;
     top: 2.5rem;
     right: 2.5rem;
-    background-image: radial-gradient(${menuColor1}, ${menuColor1});
+    background-image: radial-gradient(${menuColor1}, ${backgroundMenu});
     z-index: 1000;
     transition: transform .8s cubic-bezier(0.83, 0, 0.17, 1);
     //transform: scale(50);
@@ -162,12 +162,12 @@ const Link = styled.a`
         display: inline-block;
         font-size: 3rem;
         padding: 1rem 2rem;
-        color: ${fondoColorClaro};
+        color: ${itemMenu};
         text-decoration: none;
         text-transform: uppercase;
         white-space: nowrap;
         font-family:'Playfair Display', serif;
-        background-image: linear-gradient(120deg, transparent 0%, transparent 50%, ${fondoColorClaro} 50%);
+        background-image: linear-gradient(120deg, transparent 0%, transparent 50%, ${itemMenuResaltado} 50%);
         background-size: 220%;
         transition: all .4s;
         @media (max-width: 600px) {
@@ -183,11 +183,26 @@ const Link = styled.a`
     &:hover,
     &:active {
         background-position: 100%;
-        color: ${textoFondoColor};
+        color: ${Titular};
         transform: translateX(1rem);
     }
 `;
-const Menu = () => {
+const Menu = ({refProp1, refProp2, refProp3, refProp4}) => {
+
+    const scrollTo = (ref) => {
+        document.getElementById("navi-toggle").checked = false;
+        if (window.innerWidth < 600){
+            window.scroll({
+                top: ref.current.offsetTop - 80,
+                behavior: "smooth",
+            });
+        } else {
+            window.scroll({
+                top: ref.current.offsetTop - 200,
+                behavior: "smooth",
+            });
+        }
+      };
 
     return ( 
         <div className="navigation">
@@ -201,10 +216,10 @@ const Menu = () => {
 
             <Navigation className="navigation__nav">
                 <List className="navigation__list">
-                    <Item className="navigation__item"><Link href="#" className="navigation__link"><span>01</span>Sobre mi</Link></Item>
-                    <Item className="navigation__item"><Link href="#" className="navigation__link"><span>02</span>Mis habilidades</Link></Item>
-                    <Item className="navigation__item"><Link href="#" className="navigation__link"><span>03</span>Proyectos</Link></Item>
-                    <Item className="navigation__item"><Link href="#" className="navigation__link"><span>04</span>Contacto</Link></Item>
+                    <Item className="navigation__item" onClick={() => scrollTo(refProp1)}><Link href="javascript:void(0);" className="navigation__link"><span>01</span>Inicio</Link></Item>
+                    <Item className="navigation__item" onClick={() => scrollTo(refProp2)}><Link href="javascript:void(0);" className="navigation__link"><span>02</span>Mis habilidades</Link></Item>
+                    <Item className="navigation__item" onClick={() => scrollTo(refProp3)}><Link href="javascript:void(0);" className="navigation__link"><span>03</span>Proyectos</Link></Item>
+                    <Item className="navigation__item" onClick={() => scrollTo(refProp4)}><Link href="javascript:void(0);" className="navigation__link"><span>04</span>Contacto</Link></Item>
                     
                 </List>
             </Navigation>

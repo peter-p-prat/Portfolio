@@ -2,7 +2,7 @@ import React from 'react';
 import styled, {withTheme} from 'styled-components';
 
 import { iconOpenedColor, switchToggle, fondoColorClaro, switchTogglePhone, knobSwitch } from './theme';
-import moon from '../../images/moon.svg';
+
 import { useTheme } from '../context/ThemeContext';
 
 const Container = styled.div`
@@ -29,7 +29,6 @@ const Knob = styled.div`
     height: 35px;
     width: 35px;
     background: ${knobSwitch};
-    background-image: ${moon};
     /* box-shadow: 0px 0px 5px #c8c8c8; */
     position: absolute;
     top: -3px;

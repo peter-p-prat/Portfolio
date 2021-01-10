@@ -4,6 +4,7 @@ import { createGlobalStyle } from 'styled-components';
 import { h1Color, h2Color, h3Color, linksColor , ResaltadoTranslucido ,buttonBackgroundColor, buttonTextColor, h1FondoColor, textoFondoColor } from './theme';
 
 import Menu from './Menu';
+import Footer from "../Footer";
 
 
 const GlobalStyle = createGlobalStyle`
@@ -18,7 +19,12 @@ const GlobalStyle = createGlobalStyle`
     *::selection {
         background: ${ResaltadoTranslucido};
     };
-
+    * {
+    outline: none;
+    }
+    *:focus {
+    outline: none; 
+    }
     h1, h2, h3 {
         //font-family: 'Rubik', sans-serif;
         font-family: 'Playfair Display', serif;
@@ -45,7 +51,7 @@ const GlobalStyle = createGlobalStyle`
             color: ${textoFondoColor}
     };
     a {
-        color: ${linksColor};
+        
     };
     button {
         color: ${buttonTextColor};
@@ -54,7 +60,7 @@ const GlobalStyle = createGlobalStyle`
 
 
 
-    a, p, textarea, input {
+    a, p, textarea, input, button {
         font-family: 'Open Sans', sans-serif;
     };
 `;
@@ -66,11 +72,10 @@ const Layout = (props) => {
         <Fragment>
             <GlobalStyle />
             
-            <Menu />
+            
             
             {props.children}
           
-            
         </Fragment>
      );
 }
