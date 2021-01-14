@@ -13,15 +13,15 @@ const Card = styled.div`
     padding: 2rem;
     text-align: center;
     border-radius: 7px;
-    box-shadow: 0 1rem 0.5rem ${sombraColor};
+    /* box-shadow:0 1rem 0.5rem $ {sombraColor}; */
     overflow: hidden;
     margin: 0;
     padding-top:3rem;
     transition: transform .5s, box-shadow 1s;
     &:hover {
-        transform: translateY(-.9rem) scale(1.03);
+        transform:  translateY(-.9rem) scale(1.03);
         z-index: 3000;
-        box-shadow: 0 1rem 1.2rem ${sombraColorHover};
+        /* box-shadow:0 1rem 1.2rem $ {sombraColorHover} ; */
     };
 `;
 
@@ -44,7 +44,7 @@ opacity: 60%;
 `
 
 
-const Skill = ({theme, nombre , icono , experiencia}) => {
+const Skill = ({theme, nombre , icono , experiencia, animate}) => {
     if (icono[0] === "next") {
         theme.mode === 'dark' ? converter3(icono) : converter2(icono)
     } else { 
@@ -52,7 +52,7 @@ const Skill = ({theme, nombre , icono , experiencia}) => {
     }
     
     return ( 
-        <Card>
+        <Card animate={animate}>
             {!experiencia && <Tool> </Tool>}
                 {icono[0]}
             

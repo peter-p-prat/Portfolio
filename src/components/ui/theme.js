@@ -98,6 +98,18 @@ export const itemMenuResaltado = theme('mode', {
   dark: rosa
 });
 
+//Colores Carousel
+
+export const botones = theme('mode', {
+  light: '#888888',
+  black: '#141414'
+});
+
+export const botonesHover = theme('mode', {
+  light: '#636363',
+  dark: '#363636'
+})
+
 
 export const sombraColor = theme('mode', {
   light: "#4e4e4e14",

@@ -51,7 +51,7 @@ const Button = styled.label`
     right: 2rem;
     border-radius:50%;
     z-index: 2000;
-    box-shadow: 0 1rem 3rem rgba(0,0,0,.2);
+    box-shadow: 0 0 1rem rgba(0,0,0,.2);
     text-align: center;
     transition: background-color .8s cubic-bezier(0.83, 0, 0.17, 1);
     cursor: pointer;
@@ -193,7 +193,22 @@ const Menu = ({refProp1, refProp2, refProp3, refProp4}) => {
         document.getElementById("navi-toggle").checked = false;
         if (window.innerWidth < 600){
             window.scroll({
-                top: ref.current.offsetTop - 80,
+                top: ref.current.offsetTop,
+                behavior: "smooth",
+            });
+        } else {
+            window.scroll({
+                top: ref.current.offsetTop + 50,
+                behavior: "smooth",
+            });
+        }
+    };
+
+    const scrollToContacto = (ref) => {
+        document.getElementById("navi-toggle").checked = false;
+        if (window.innerWidth < 600){
+            window.scroll({
+                top: ref.current.offsetTop - 70,
                 behavior: "smooth",
             });
         } else {
@@ -202,7 +217,7 @@ const Menu = ({refProp1, refProp2, refProp3, refProp4}) => {
                 behavior: "smooth",
             });
         }
-      };
+    };
 
     return ( 
         <div className="navigation">
@@ -219,7 +234,7 @@ const Menu = ({refProp1, refProp2, refProp3, refProp4}) => {
                     <Item className="navigation__item" onClick={() => scrollTo(refProp1)}><Link href="javascript:void(0);" className="navigation__link"><span>01</span>Inicio</Link></Item>
                     <Item className="navigation__item" onClick={() => scrollTo(refProp2)}><Link href="javascript:void(0);" className="navigation__link"><span>02</span>Mis habilidades</Link></Item>
                     <Item className="navigation__item" onClick={() => scrollTo(refProp3)}><Link href="javascript:void(0);" className="navigation__link"><span>03</span>Proyectos</Link></Item>
-                    <Item className="navigation__item" onClick={() => scrollTo(refProp4)}><Link href="javascript:void(0);" className="navigation__link"><span>04</span>Contacto</Link></Item>
+                    <Item className="navigation__item" onClick={() => scrollToContacto(refProp4)}><Link href="javascript:void(0);" className="navigation__link"><span>04</span>Contacto</Link></Item>
                     
                 </List>
             </Navigation>

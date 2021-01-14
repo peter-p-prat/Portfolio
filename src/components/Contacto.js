@@ -2,6 +2,7 @@ import React, {Fragment, useState } from 'react';
 import styled, {withTheme} from 'styled-components';
 import emailjs from 'emailjs-com';
 import apiKeys from '../apikeys';
+
 import { Resaltado, fondoColor, h2Color, ResaltadoTranslucido, cardColor } from './ui/theme';
 const Titulo = styled.h1`
     display: inline;
@@ -32,8 +33,7 @@ const Categoria = styled.p`
     };
 `;
 const Wrapper = styled.div`
-    width: 100%;
-    padding-bottom:0;
+    padding: 22vw 1rem 20vw 1rem;
     display: flex;
     flex-direction:column;
     align-items: center;
@@ -41,21 +41,19 @@ const Wrapper = styled.div`
     
 `;
 const Grid = styled.div`
-    
+    width:100%;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     column-gap: 2rem;
     row-gap:0;
     align-items: center;
     justify-items: center;
     justify-content:center;
     @media(min-width:1200px){
-        width:85vw;
+        width:100%;
     }
 `;
-const Item = styled.div`
-    place-self: center stretch;
-`;
+
 const Form = styled.form`
     width:80%;
     margin-top:1.5rem;
@@ -64,7 +62,7 @@ const Form = styled.form`
     flex-direction: column;
     justify-content:center;
     align-items:center;
-    border: 1.5px solid ${ResaltadoTranslucido};
+    /* border: 1.5px solid $ {ResaltadoTranslucido}; */
     border-radius: 5px;
     background-color: ${cardColor};
     input[type=text],
@@ -152,12 +150,7 @@ const Aviso = styled.p`
         transition: all .2s ease-in-out;
 `;
 
-const Svg = styled.svg`
-    height:clamp(3rem, 5rem, 8rem);
-    width:clamp(3rem, 5rem, 8rem);
-    padding: 0.1rem;
-    margin: 0;
-`;
+
 
 
 const Mensajewrapper = styled.div`
@@ -171,26 +164,7 @@ const Mensajewrapper = styled.div`
     justify-content:space-between;
     align-items:center;
 `;
-const Waves = styled.div`
-    margin:0;
-    padding:0 0 0 0;
-    position:relative;
-    
-    overflow-x: hidden;
-    svg {
-        display: block;
-        width: 104%;
-        height:110%;
-        margin:0;
-        padding: 0;
-        background-color: ${fondoColor};
-    }
-`;
-const Wave = styled.svg`
-    height:110%;
-    margin: 0;
-    padding:0;
-`;
+
 const Contacto = (props) => {
     
     const [enviando, setEnviando] = useState(false);
@@ -242,9 +216,9 @@ const Contacto = (props) => {
             
             <Wrapper ref={props.refProp}>
                 <Titulo>Contacto</Titulo>
-                <Categoria>Si tenés una propuesta laboral que crees que podría interesarme, querés hacerme algún comentario sobre mi sitio web o simplemente probar si todo funciona correctamente, no dudes en escribirme. Te contestaré a la brevedad. </Categoria>
-                <Categoria>Podes enviarme un email a través del siguiente formulario o dirigirte a mis perfiles de <a target="_blank" href="https://www.linkedin.com/in/pedro-peirano-prat/">LinkedIn</a> y <a target="_blank" href="https://github.com/peter-p-prat/">Github</a>.</Categoria>
-                
+                <Categoria>Si tenés una propuesta laboral que crees que podría interesarme, querés hacerme algún comentario sobre mi sitio web o simplemente probar si todo funciona correctamente, no dudes en contactarme. Te contestaré a la brevedad. </Categoria>
+                <Categoria>Podes hacerlo enviandome un email a través del siguiente formulario o dirigiendote a mi perfil de <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/pedro-peirano-prat/">LinkedIn</a>.</Categoria>
+                <Categoria>Ademas, haciendo click en <a href='/docs/Pedro Peirano Prat CV - Desarrollador web Jr.pdf' download='Pedro Peirano Prat CV - Desarrollador web'>este enlace</a> podes descargar mi Curriculum Vitae.</Categoria>
                 
                 <Form  onSubmit = {onSubmit}>
                     

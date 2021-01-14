@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import './reset.css';
-import './styles/fonts/shrimp.css';
+import './styles/Spinner.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { MyThemeProvider } from "./components/context/ThemeContext";

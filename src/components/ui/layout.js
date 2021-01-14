@@ -3,9 +3,6 @@ import { createGlobalStyle } from 'styled-components';
 
 import { h1Color, h2Color, h3Color, linksColor , ResaltadoTranslucido ,buttonBackgroundColor, buttonTextColor, h1FondoColor, textoFondoColor } from './theme';
 
-import Menu from './Menu';
-import Footer from "../Footer";
-
 
 const GlobalStyle = createGlobalStyle`
     :root {
@@ -26,7 +23,6 @@ const GlobalStyle = createGlobalStyle`
     outline: none; 
     }
     h1, h2, h3 {
-        //font-family: 'Rubik', sans-serif;
         font-family: 'Playfair Display', serif;
     };
     
