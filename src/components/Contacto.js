@@ -1,9 +1,18 @@
 import React, {Fragment, useState } from 'react';
 import styled, {withTheme} from 'styled-components';
 import emailjs from 'emailjs-com';
+import Bounce from 'react-reveal/Bounce';
+import HeadShake from 'react-reveal/HeadShake';
+
 import apiKeys from '../apikeys';
 
 import { Resaltado, fondoColor, h2Color, ResaltadoTranslucido, cardColor } from './ui/theme';
+
+const Contenedoranimacion = styled.div`
+margin: 2rem 0 3rem 0;
+padding:0;
+`;
+
 const Titulo = styled.h1`
     display: inline;
     text-align: center;
@@ -169,14 +178,17 @@ const Contacto = (props) => {
     
     const [enviando, setEnviando] = useState(false);
     const [enviado, setEnviado] = useState(false);
+    
+    //state para recopilar datos del formulario
     const [contactandome, actualizarContactandome] = useState({
         name: '',
         email: '',
         subject: '',
         message: ''
     });
-
-
+    
+    const { name, email, subject, message } = contactandome;
+    //Funcion para almacenar en el state los datos ingresados al form
     const handleChange = e => {
         actualizarContactandome({
             ...contactandome,
@@ -184,17 +196,20 @@ const Contacto = (props) => {
         });
     }
     
-    const { name, email, subject, message } = contactandome;
-
+    //Funcion para enviar email
     const onSubmit=(e)=>{
-        // Prevents default refresh by the browser
+        // Previene la actualizacion del navegador por defecto
         e.preventDefault();
+        //Activa Aviso "enviando"
         setEnviando(true);
         emailjs.sendForm('service_ugerwe8', apiKeys.TEMPLATE_ID, e.target, apiKeys.USER_ID)
         .then(result => {
+        //desactiva aviso enviando
         setEnviando(false);
+        //activa aviso "Enviado"
         setEnviado(true);
         setTimeout(() => {
+            //Desactiva aviso "Enviado"
             setEnviado(false);
           }, 4000);
         //Limpiar formulario
@@ -215,7 +230,13 @@ const Contacto = (props) => {
         <Fragment>
             
             <Wrapper ref={props.refProp}>
-                <Titulo>Contacto</Titulo>
+                <Bounce left>
+                    <HeadShake forever duration={2500}>
+                        <Contenedoranimacion>
+                        <Titulo>Contacto</Titulo>
+                        </Contenedoranimacion>
+                    </HeadShake>
+                </Bounce>
                 <Categoria>Si tenés una propuesta laboral que crees que podría interesarme, querés hacerme algún comentario sobre mi sitio web o simplemente probar si todo funciona correctamente, no dudes en contactarme. Te contestaré a la brevedad. </Categoria>
                 <Categoria>Podes hacerlo enviandome un email a través del siguiente formulario o dirigiendote a mi perfil de <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/pedro-peirano-prat/">LinkedIn</a>.</Categoria>
                 <Categoria>Ademas, haciendo click en <a href='/docs/Pedro Peirano Prat CV - Desarrollador web Jr.pdf' download='Pedro Peirano Prat CV - Desarrollador web'>este enlace</a> podes descargar mi Curriculum Vitae.</Categoria>

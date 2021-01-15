@@ -1,9 +1,9 @@
 import React from 'react';
 import styled, {withTheme} from 'styled-components';
-import { fondoColor, Titular, Resaltado, subTitulo, copete, globoHero } from './ui/theme';
+import { fondoColor, Titular, Resaltado, subTitulo, copete, globoHero, textColor } from './ui/theme';
 import UncontrolledLottie from './UncontrolledLottie';
-
-
+import useTypewriter from "react-typewriter-hook";
+import Typist from 'react-typist';
 const Wrapperwrapper = styled.div`
     margin:0;
     padding:0;
@@ -59,6 +59,16 @@ const Presentacion = styled.div`
     max-height: 50%;
     order: 2;
     width: 90%;
+    animation: 1s ease-out 0s 1 FadeInFromLeft;
+    @media (min-width: 801px) {
+        margin:0 2rem 0 2rem;
+        order: 0;
+    };
+    @media (max-width: 800px) {
+        padding-bottom: 3rem;
+        flex-grow: 1;
+    };
+    
     h2 {
         color: ${subTitulo};
         margin-bottom:0.2rem;
@@ -72,21 +82,52 @@ const Presentacion = styled.div`
         @media (max-width: 800px) {
         margin-top: 0;
         };
-    }
-    @media (min-width: 801px) {
-        margin:0 2rem 0 2rem;
-        order: 0;
     };
-    @media (max-width: 800px) {
-        padding-bottom: 3rem;
-        flex-grow: 1;
+    
+    .cursor {
+        animation: cursor-animation 0.9s step-end infinite;
+    };
+    @keyframes cursor-animation {
+        0% {
+            opacity: 0;
+        }
+        50% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+        }
+    };
+    @keyframes FadeInFromLeft {
+    0% {
+        transform: translateX(-100%);
+        opacity:0;
     }
-`
+    80% {
+        transform: translateX(5%);
+        opacity:1;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    }
+`;
+const Copete = styled.div`
+    margin:0;
+    padding:0;
+    min-height: 6rem;
+`;
+
+const Contenedoranimacion = styled.div`
+margin:0;
+padding:0;
+`;
 const Ventanita = styled.div`
-display:flex;
-justify-content:center;
-align-items:center;
-position: relative;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position: relative;
     order: 1;
     margin:1rem;
     padding: 5rem;
@@ -95,7 +136,8 @@ position: relative;
     max-width: 35vw;
     background: no-repeat center url(${globoHero}) ;
     background-size: 90%;
-    
+    animation: 1s ease-out 0s 1 FadeInFromRight;
+
     @media (max-width: 800px) {
         max-width: 200px;
         height: 20vw;
@@ -118,6 +160,17 @@ position: relative;
     svg{
         margin: 0;
     };
+
+    @keyframes FadeInFromRight {
+    0% {
+        /* transform: translateX(100%); */
+        opacity:0;
+    }
+    100% {
+        /* transform: translateX(0); */
+        opacity: 1;
+    }
+}
     
 `;
 
@@ -154,18 +207,37 @@ const Ilustracion2 = styled.img`
 `
 
 const Hero = (props) => {
+    const copete = 'Programador Front-end';
+    const typingCopete = useTypewriter(copete);
 
     return ( 
         <Wrapperwrapper ref={props.refProp}>
         <Wrapper>
             <Presentacion>
-                <Titulo >Pedro </Titulo><Titulo>Peirano </Titulo> <Titulo>Prat</Titulo> 
-                <h2>Programador Front-end</h2>
-                <p>Paginas web interactivas, diseño intuitivo y 100% responsive.</p>
+                <Titulo >Pedro </Titulo><Titulo>Peirano </Titulo><Titulo>Prat</Titulo>
+                
+                <Copete>
+                    <Typist 
+                        startDelay={2500}
+                        cursor={{
+                            show: false,
+                            blink: true,
+                            element: '|',
+                            hideWhenDone: false,
+                            hideWhenDoneDelay: 1000
+                        }}
+                    >
+                        <h2>Programador Front-end</h2>
+                        <p>Paginas web interactivas, diseño intuitivo y 100% responsive.<span className="cursor">|</span></p>
+                    </Typist>
+                </Copete>
             </Presentacion>
             
+           
             <Ventanita>
+                
                 <UncontrolledLottie />
+                
             </Ventanita>
             
         </Wrapper>

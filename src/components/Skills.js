@@ -6,7 +6,8 @@ import Skill from './Skill';
 import { Resaltado, fondoColor, botones, botonesHover } from './ui/theme';
 import useWindowWidth from '../hooks/useWindowWidth';
 import Spinner from './ui/Spinner';
-
+import Bounce from 'react-reveal/Bounce';
+import HeadShake from 'react-reveal/HeadShake';
 
 const Wrapperwrapper = styled.div`
     position:relative;
@@ -112,7 +113,7 @@ const Spin = styled.div`
 const Skills = ({refProp, theme}) => {
 
     const [slidesToShow, setSlidesToShow] = useState();
-    
+    const [counter, setCounter] = useState(1);
     const width = useWindowWidth();
 
     useEffect(() => {
@@ -125,7 +126,7 @@ const Skills = ({refProp, theme}) => {
         } 
         
     }, [width]);
-
+    
     const QUERY_SKILLS = `
         {
             allFrontends(orderBy: _createdAt_ASC) {
@@ -161,7 +162,6 @@ const Skills = ({refProp, theme}) => {
                 </svg>
             </Waves>
             <Wrapper ref={refProp}>
-                <Titulo>Skills</Titulo>
                 <Categoria>FrontEnd</Categoria>
                 <Waiting>
                     <Spin>
@@ -236,7 +236,11 @@ const Skills = ({refProp, theme}) => {
                 </Waves>
             
                 <Wrapper >
-                    <Titulo>Skills</Titulo>
+                    <Bounce left>
+                    <HeadShake forever duration={2500}>
+                        <Titulo>Skills</Titulo>
+                    </HeadShake>
+                    </Bounce>
                     <Categoria>FrontEnd</Categoria>
                     <Slider  transitionMode='scroll3d' slidesToShow={slidesToShow} wrapAround={true} cellSpacing={66} defaultControlsConfig={defaultControlsConfig}>
                         {data.allFrontends.map(frontend => (

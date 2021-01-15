@@ -4,6 +4,8 @@ import { useQuery } from "graphql-hooks";
 import Proyecto from './Proyecto';
 import { fondoColor, Resaltado } from './ui/theme';
 import Spinner from './ui/Spinner';
+import Bounce from 'react-reveal/Bounce';
+import HeadShake from 'react-reveal/HeadShake';
 
 const Wrapperwrapper = styled.div`
     position:relative;
@@ -96,6 +98,7 @@ margin: 0 auto;
 
 const Projects = (props) => {
     
+
     const QUERY_PROYECTOS = `
             {
             allProyectos(orderBy: _createdAt_ASC) {
@@ -162,8 +165,11 @@ const Projects = (props) => {
                     </svg>
                 </Waves>
                 <Wrapper >
-                    <Titulo>Proyectos</Titulo>
-                    
+                    <Bounce left>
+                    <HeadShake forever duration={2500}>
+                        <Titulo>Proyectos</Titulo>
+                    </HeadShake>
+                    </Bounce>
                     <Grid>
                     {data.allProyectos.map(proyecto => (
                         <Proyecto key={proyecto.nombre} nombre={proyecto.nombre} descripcion={proyecto.descripcion} tecnologias={proyecto.tecnologias.techs} enlace={proyecto.linkasitio} repo={proyecto.linkarepo} imagen={proyecto.mockup.responsiveImage.src} />

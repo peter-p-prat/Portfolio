@@ -204,20 +204,6 @@ const Menu = ({refProp1, refProp2, refProp3, refProp4}) => {
         }
     };
 
-    const scrollToContacto = (ref) => {
-        document.getElementById("navi-toggle").checked = false;
-        if (window.innerWidth < 600){
-            window.scroll({
-                top: ref.current.offsetTop - 70,
-                behavior: "smooth",
-            });
-        } else {
-            window.scroll({
-                top: ref.current.offsetTop - 200,
-                behavior: "smooth",
-            });
-        }
-    };
 
     return ( 
         <div className="navigation">
@@ -234,7 +220,7 @@ const Menu = ({refProp1, refProp2, refProp3, refProp4}) => {
                     <Item className="navigation__item" onClick={() => scrollTo(refProp1)}><Link href="javascript:void(0);" className="navigation__link"><span>01</span>Inicio</Link></Item>
                     <Item className="navigation__item" onClick={() => scrollTo(refProp2)}><Link href="javascript:void(0);" className="navigation__link"><span>02</span>Mis habilidades</Link></Item>
                     <Item className="navigation__item" onClick={() => scrollTo(refProp3)}><Link href="javascript:void(0);" className="navigation__link"><span>03</span>Proyectos</Link></Item>
-                    <Item className="navigation__item" onClick={() => scrollToContacto(refProp4)}><Link href="javascript:void(0);" className="navigation__link"><span>04</span>Contacto</Link></Item>
+                    <Item className="navigation__item" onClick={() => scrollTo(refProp4)}><Link href="javascript:void(0);" className="navigation__link"><span>04</span>Contacto</Link></Item>
                     
                 </List>
             </Navigation>
