@@ -35,14 +35,16 @@ const ThemeToggleContext = createContext({
 
 
     // toggle() now switches `mode` between light and dark, and updates themeState
-    const toggle = () => {
-        const mode = (themeState.mode === 'light' 
+    const toggle = async() => {
+        const getStored = await localStorage.getItem('mode');
+        const checkIfStored = await (getStored === null ? 'light' : getStored);
+        const mode = await(checkIfStored === 'light' 
                         ? `dark` 
                         : `light`);
 
-        localStorage.setItem('mode', mode);
-        setThemeState({ mode: mode });
-        setStoredMode({ mode: mode });
+        await localStorage.setItem('mode', mode);
+        await setThemeState({ mode: mode });
+        await setStoredMode({ mode: mode });
  
         
     };

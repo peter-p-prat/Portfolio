@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import styled, { withTheme } from 'styled-components';
 
-import { fondoColor, Resaltado, backgroundColor } from './ui/theme';
+import { fondoColor, Resaltado, backgroundColor } from './theme';
 
 const Wrapperwrapper = styled.div`
     position:relative;

@@ -2,8 +2,8 @@ import React from 'react';
 import styled, {withTheme} from 'styled-components';
 import { fondoColor, Titular, Resaltado, subTitulo, copete, globoHero, textColor } from './ui/theme';
 import UncontrolledLottie from './UncontrolledLottie';
-import useTypewriter from "react-typewriter-hook";
 import Typist from 'react-typist';
+
 const Wrapperwrapper = styled.div`
     margin:0;
     padding:0;
@@ -26,6 +26,11 @@ const Wrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    //media query para iphoneX
+    @media (width: 375px)and (height: 812px) {
+        padding-top:5rem !important;
+        min-height:650px;
+    };
     @media (max-width: 800px) {
         flex-direction:column;
         justify-content: space-between;
@@ -207,8 +212,7 @@ const Ilustracion2 = styled.img`
 `
 
 const Hero = (props) => {
-    const copete = 'Programador Front-end';
-    const typingCopete = useTypewriter(copete);
+
 
     return ( 
         <Wrapperwrapper ref={props.refProp}>
@@ -228,7 +232,7 @@ const Hero = (props) => {
                         }}
                     >
                         <h2>Programador Front-end</h2>
-                        <p>Paginas web interactivas, diseño intuitivo y 100% responsive.<span className="cursor">|</span></p>
+                        <p>Páginas web interactivas, diseño intuitivo y 100% responsive.<span className="cursor">|</span></p>
                     </Typist>
                 </Copete>
             </Presentacion>

@@ -139,7 +139,7 @@ export const iconClosedColor = theme('mode', {
 });
 export const iconOpenedColor = theme('mode', {
   light: h1Light,
-  dark: h1Dark
+  dark: '#cfcfcf'
 });
 
 export const menuColor1 = theme('mode', {

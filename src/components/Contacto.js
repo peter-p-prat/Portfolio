@@ -1,7 +1,7 @@
 import React, {Fragment, useState } from 'react';
 import styled, {withTheme} from 'styled-components';
 import emailjs from 'emailjs-com';
-import Bounce from 'react-reveal/Bounce';
+import Fade from 'react-reveal/Fade';
 import HeadShake from 'react-reveal/HeadShake';
 
 import apiKeys from '../apikeys';
@@ -230,16 +230,16 @@ const Contacto = (props) => {
         <Fragment>
             
             <Wrapper ref={props.refProp}>
-                <Bounce left>
+                <Fade>
                     <HeadShake forever duration={2500}>
                         <Contenedoranimacion>
                         <Titulo>Contacto</Titulo>
                         </Contenedoranimacion>
                     </HeadShake>
-                </Bounce>
+                </Fade>
                 <Categoria>Si tenés una propuesta laboral que crees que podría interesarme, querés hacerme algún comentario sobre mi sitio web o simplemente probar si todo funciona correctamente, no dudes en contactarme. Te contestaré a la brevedad. </Categoria>
-                <Categoria>Podes hacerlo enviandome un email a través del siguiente formulario o dirigiendote a mi perfil de <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/pedro-peirano-prat/">LinkedIn</a>.</Categoria>
-                <Categoria>Ademas, haciendo click en <a href='/docs/Pedro Peirano Prat CV - Desarrollador web Jr.pdf' download='Pedro Peirano Prat CV - Desarrollador web'>este enlace</a> podes descargar mi Curriculum Vitae.</Categoria>
+                <Categoria>Podés hacerlo enviéndome un email a través del siguiente formulario o dirigiéndote a mi perfil de <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/pedro-peirano-prat/">LinkedIn</a>.</Categoria>
+                <Categoria>Además, haciendo click en <a href='/docs/Pedro Peirano Prat CV - Desarrollador web Jr.pdf' download='Pedro Peirano Prat CV - Desarrollador web'>este enlace</a> podés descargar mi Curriculum Vitae.</Categoria>
                 
                 <Form  onSubmit = {onSubmit}>
                     

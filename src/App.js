@@ -8,7 +8,7 @@ import Switch from './components/ui/Switch';
 import Skills from './components/Skills';
 import Projects from './components/Proyectos';
 import Contacto from './components/Contacto';
-import Footer from './components/Footer';
+import Footer from './components/ui/Footer';
 import Menu from './components/ui/Menu';
 import LoadingScreen from './components/ui/LoadingScreen';
 
