@@ -235,12 +235,16 @@ const Titulo = styled.h1`
     text-align: left;
     font-weight: 700;
     font-size: clamp(1rem, 1.5rem, 3.5rem);
-    max-width: 70%;
+    max-width: 90%;
     display: inline-block;
     background-size: 100% 0.5em;
     background-repeat: no-repeat;
     background-position: center 100%;
     background-image: linear-gradient(120deg, ${fondoColor} 0%,${fondoColor} 100%);
+
+    width:fit-content;
+    display:inline;
+    
 `;
 const Descripcion = styled.p`
     margin: 0 1rem ;

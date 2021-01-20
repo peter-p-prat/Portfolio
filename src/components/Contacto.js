@@ -239,7 +239,7 @@ const Contacto = (props) => {
                 </Fade>
                 <Categoria>Si tenés una propuesta laboral que crees que podría interesarme, querés hacerme algún comentario sobre mi sitio web o simplemente probar si todo funciona correctamente, no dudes en contactarme. Te contestaré a la brevedad. </Categoria>
                 <Categoria>Podés hacerlo enviéndome un email a través del siguiente formulario o dirigiéndote a mi perfil de <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/pedro-peirano-prat/">LinkedIn</a>.</Categoria>
-                <Categoria>Además, haciendo click en <a href='/docs/Pedro Peirano Prat CV - Desarrollador web Jr.pdf' download='Pedro Peirano Prat CV - Desarrollador web'>este enlace</a> podés descargar mi Curriculum Vitae.</Categoria>
+                <Categoria>Además, haciendo click en los enlaces podés descargar mi Curriculum Vitae <a href='/docs/Pedro Peirano Prat CV - Desarrollador web Jr.pdf' download='Pedro Peirano Prat CV - Desarrollador web'> en español</a> y <a href='/docs/Pedro Peirano Prat CV - Web Developer Jr.pdf' download='Pedro Peirano Prat CV - Web Developer Jr'>en inglés</a>.</Categoria>
                 
                 <Form  onSubmit = {onSubmit}>
                     

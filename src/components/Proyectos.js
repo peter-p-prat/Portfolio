@@ -110,7 +110,7 @@ const Projects = (props) => {
     }, [])
     const QUERY_PROYECTOS = `
             {
-            allProyectos(orderBy: _createdAt_ASC) {
+            allProyectos(orderBy: orden_ASC) {
                 nombre
                 descripcion
                 linkarepo
